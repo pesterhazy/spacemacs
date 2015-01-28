@@ -1497,7 +1497,7 @@ which require an initialization must be listed explicitly in the list.")
     :init
     (progn
       (setq org-log-done t)
-      (add-hook 'org-mode-hook 'org-indent-mode)
+      ;; (add-hook 'org-mode-hook 'org-indent-mode)
       (evil-leader/set-key-for-mode 'org-mode
         "mc" 'org-capture
         "md" 'org-deadline
@@ -1507,25 +1507,26 @@ which require an initialization must be listed explicitly in the list.")
         "mm" 'org-ctrl-c-ctrl-c
         "mr" 'org-refile
         "ms" 'org-schedule)
-      (eval-after-load 'evil-org
-        ;; move the leader bindings to `m` prefix to be consistent with
-        ;; the rest of spacemacs bindings
-        '(evil-leader/set-key-for-mode 'org-mode
-           "a" nil "ma" 'org-agenda
-           "c" nil "mA" 'org-archive-subtree
-           "o" nil "mC" 'evil-org-recompute-clocks
-           "l" nil "ml" 'evil-org-open-links
-           "t" nil "mt" 'org-show-todo-tree)))
+      ;; (eval-after-load 'evil-org
+      ;;   ;; move the leader bindings to `m` prefix to be consistent with
+      ;;   ;; the rest of spacemacs bindings
+      ;;   '(evil-leader/set-key-for-mode 'org-mode
+      ;;      "a" nil "ma" 'org-agenda
+      ;;      "c" nil "mA" 'org-archive-subtree
+      ;;      "o" nil "mC" 'evil-org-recompute-clocks
+      ;;      "l" nil "ml" 'evil-org-open-links
+      ;;      "t" nil "mt" 'org-show-todo-tree))
+      )
     :config
     (progn
       (require 'org-install)
       (define-key global-map "\C-cl" 'org-store-link)
       (define-key global-map "\C-ca" 'org-agenda)
-      (use-package org-bullets
-        :config
-        (defun spacemacs//org-mode-hook ()
-          (org-bullets-mode 1))
-        (add-hook 'org-mode-hook 'spacemacs//org-mode-hook))
+      ;; (use-package org-bullets
+      ;;   :config
+      ;;   (defun spacemacs//org-mode-hook ()
+      ;;     (org-bullets-mode 1))
+      ;;   (add-hook 'org-mode-hook 'spacemacs//org-mode-hook))
       ;; (use-package org-trello
       ;;   :config
       ;;   (add-hook 'org-mode-hook 'org-trello-mode))
